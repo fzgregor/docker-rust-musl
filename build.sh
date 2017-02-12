@@ -31,8 +31,8 @@ function build_llvm_components() {
     fi
 
     echo "** Fetching sources"
-    curl "http://llvm.org/releases/${LLVM_VERSION}/llvm-${LLVM_VERSION}.src.tar.xz" | tar xJf -
-    curl "http://llvm.org/releases/${LLVM_VERSION}/libunwind-${LLVM_VERSION}.src.tar.xz" | tar xJf -
+    curl "http://releases.llvm.org/${LLVM_VERSION}/llvm-${LLVM_VERSION}.src.tar.xz" | tar xJf -
+    curl "http://releases.llvm.org/${LLVM_VERSION}/libunwind-${LLVM_VERSION}.src.tar.xz" | tar xJf -
 
     mv "llvm-${LLVM_VERSION}.src" llvm
     mv "libunwind-${LLVM_VERSION}.src" libunwind
@@ -56,7 +56,7 @@ function build_rust() {
     cd "${BUILD_DIR}"
     if [ ! -d "${BUILD_DIR}/rust" ]; then
         curl "https://static.rust-lang.org/dist/rustc-${RUST_VERSION}-src.tar.gz" | tar xzf -
-        mv "rustc-${RUST_VERSION}" rust
+        mv "rustc-${RUST_VERSION}-src" rust
 
         cd rust
 

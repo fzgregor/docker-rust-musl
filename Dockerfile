@@ -1,10 +1,10 @@
-FROM debian:jessie
+FROM ubuntu:16.04
 MAINTAINER Andrew Dunham <andrew@du.nham.ca>
 
 # Set up environment
-ENV LLVM_VERSION=3.7.0 \
-    MUSL_VERSION=1.1.12 \
-    RUST_VERSION=nightly \
+ENV LLVM_VERSION=3.9.1 \
+    MUSL_VERSION=1.1.14 \
+    RUST_VERSION=1.15.1 \
     RUST_BUILD_TARGET=all \
     RUST_BUILD_INSTALL=true \
     RUST_BUILD_CLEAN=true
