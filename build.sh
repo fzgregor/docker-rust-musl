@@ -74,6 +74,11 @@ function build_rust() {
     if [ "x${RUST_BUILD_INSTALL}" == "xtrue" ]; then
         make install
     fi
+
+    # FIXME: temporary fix, make install does not install musl libraries properly
+    mkdir -p /usr/local/lib/rustlib/x86_64-unknown-linux-musl/lib
+    cp /build/rust/build/x86_64-unknown-linux-gnu/stage2-std/x86_64-unknown-linux-musl/release/deps/* /usr/local/lib/rustlib/x86_64-unknown-linux-musl/lib
+    cp /usr/local/musl/lib/* /usr/local/lib/rustlib/x86_64-unknown-linux-musl/lib
 }
 
 function install_cargo() {
